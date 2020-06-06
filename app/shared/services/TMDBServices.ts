@@ -9,7 +9,7 @@ export class TMDBServices {
         @inject(Symbols.Config) private config: Config
     ){}
     public search(query: string, language?: string, page?: number, includeAdult?: boolean) {
-        let apiString = `${this.config.tmdbEndpoint}search/movie?api_key=asdfa&query=${query}`;
+        let apiString = `${this.config.tmdbEndpoint}search/movie?api_key=${this.config.tmdbApiKey}&query=${query}`;
         if (language) {
             apiString += `&language=${language}`;
         }

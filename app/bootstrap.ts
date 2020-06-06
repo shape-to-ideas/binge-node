@@ -5,6 +5,7 @@ import {RegisterRoutes} from './user/register';
 import { injectable, inject } from 'inversify';
 import {Symbols} from "./config/symbols";
 import {Schemas} from "./connection/schemas";
+import {GenreRoutes} from "./genre";
 
 @injectable()
 export class Bootstrap {
@@ -13,6 +14,7 @@ export class Bootstrap {
         @inject(Symbols.Schemas) private schemas: Schemas,
         @inject(Symbols.LoginRoutes) private loginRoutes: LoginRoutes,
         @inject(Symbols.RegisterRoutes) private registerRoutes: RegisterRoutes,
+        @inject(Symbols.GenreRoutes) private genreRoutes: GenreRoutes,
     ) {
     }
     public async init (app: express.Application) {
@@ -23,5 +25,6 @@ export class Bootstrap {
         this.movieRoutes.register(app);
         this.loginRoutes.register(app);
         this.registerRoutes.register(app);
+        this.genreRoutes.register(app);
     }
 }
