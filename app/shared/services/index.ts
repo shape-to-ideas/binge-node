@@ -1,3 +1,5 @@
 export * from './TMDBServices';
 export * from './services.di';
-export * from './loggerServices'
+export * from './loggerServices';
+export * from './schedulers';
+

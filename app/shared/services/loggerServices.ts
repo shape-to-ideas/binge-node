@@ -8,7 +8,7 @@ export class LoggerServices {
     private logger() {
         return createLogger({transports: [
                              new transports.Console(),
-                             new transports.File({filename: 'application-logs.log'})]
+                             new transports.File({filename: 'application-logs.log'})] // @TODO error deletion scheduler
         });
     }
     public logErrorResponse(response: any, error: any) {

@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import {Container} from "inversify";
-import {MovieDi} from "../admin/movie";
+import {MovieDi} from "../movie";
 import { ServicesDi } from '../shared/services';
 import { RegisterDi } from '../user/register';
 import {Symbols} from "./symbols";

@@ -1,5 +1,5 @@
 import * as express from 'express';
-import {MovieRoutes} from './admin/movie';
+import {MovieRoutes} from './movie';
 import {LoginRoutes} from './user/login';
 import {RegisterRoutes} from './user/register';
 import { injectable, inject } from 'inversify';

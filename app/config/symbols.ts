@@ -25,6 +25,7 @@ export interface BingeSymbols {
   LoginControllers: symbol;
   RegisterServices: symbol;
   RegisterControllers: symbol;
+  Schedulers: symbol;
 }
 
 export const Symbols: BingeSymbols = {
@@ -54,4 +55,5 @@ export const Symbols: BingeSymbols = {
   LoginControllers: Symbol('LoginControllers'),
   RegisterServices: Symbol('RegisterServices'),
   RegisterControllers: Symbol('RegisterControllers'),
+  Schedulers: Symbol('Schedulers'),
 };

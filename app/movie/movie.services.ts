@@ -1,9 +1,9 @@
 import {inject, injectable} from "inversify";
-import {Symbols} from "../../config/symbols";
-import {MoviesSchema} from "../../connection/schemas";
+import {Symbols} from "../config/symbols";
+import {MoviesSchema} from "../connection/schemas";
 import * as mongoose from 'mongoose';
-import {Config} from '../../shared';
-import {TMDBServices, LoggerServices} from '../../shared/services';
+import {Config} from '../shared';
+import {TMDBServices, LoggerServices} from '../shared/services';
 import {Movies} from './interfaces';
 import {MovieFactory} from './movie.factory';
 import * as _ from 'lodash';
@@ -45,11 +45,12 @@ export class MovieServices {
     }
   }
   
-  private async saveMoviesToDB(searchResponse: Movies[]) {
+  public async saveMoviesToDB(moviesData: Movies[]) {
     let movieModel = this.movieSchema.getModel();
-    const movieIds = _.map(searchResponse, (movie) => movie.id);
+    const movieIds = _.map(moviesData, (movie) => movie.id);
     const movieInDb = await movieModel.find({id: {$in: movieIds}}).lean();
-    const moviesToInsert = _.filter(searchResponse, (movie) => _.isEmpty(_.find(movieInDb, {id: movie.id})));
+    const moviesToInsert = _.filter(moviesData, (movie) => _.isEmpty(_.find(movieInDb, {id: movie.id})));
+    console.log('moviesToInsert----', moviesToInsert);
     movieModel.insertMany(moviesToInsert, (error, response) => {
       if (error) {
         this.loggerServices.logError(error)

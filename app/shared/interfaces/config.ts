@@ -5,4 +5,5 @@ export interface Config {
     tmdbEndpoint: string;
     saltRounds: string;
     secretKey: string;
+    topRatedApiPage: number;
 }

@@ -21,7 +21,12 @@ export class TMDBServices {
         }
         return axios.get(apiString);
     }
-    public insertFiltered() {
-    
+    public getTopRatedMovies(options : {page: number}) {
+      let params = '';
+      if (options.page) {
+        params += `&page=${options.page}`;
+      }
+      let apiString =`${this.config.tmdbEndpoint}movie/top_rated?api_key=${this.config.tmdbApiKey}${params}`;
+      return axios.get(apiString);
     }
 }

@@ -1,9 +1,9 @@
 import {inject, injectable} from "inversify";
-import {Symbols} from "../../config/symbols";
+import {Symbols} from "../config/symbols";
 import * as express from 'express';
 import {MovieServices} from "./movie.services";
 import {Movies} from "./interfaces";
-import {LoggerServices} from '../../shared';
+import {LoggerServices} from '../shared';
 
 @injectable()
 export class MovieControllers {
@@ -21,6 +21,7 @@ export class MovieControllers {
     }
   };
   
+  // Not using anymore
   insertMovie = async (req: express.Request, res: express.Response) => {
     try {
       let params = req.body;
