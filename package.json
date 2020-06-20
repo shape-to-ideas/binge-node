@@ -6,6 +6,7 @@
   "dependencies": {
     "@types/jsonwebtoken": "^8.3.8",
     "@types/mongoose": "^5.7.3",
+    "@types/node-schedule": "^1.3.0",
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
@@ -26,13 +27,15 @@
   },
   "scripts": {
     "start": "node ./build/index.js",
-    "watch": "npm run build && node ./node_modules/nodemon/bin/nodemon.js --inspect=5454 ./build/index.js",
+    "watch": "npm run build && NODE_ENV=development node ./node_modules/nodemon/bin/nodemon.js --inspect=5454 ./build/index.js",
     "build": "./node_modules/typescript/bin/tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "nodemonConfig": {
-    "ignore": ["*.json"]
+    "ignore": [
+      "*.json"
+    ]
   }
 }

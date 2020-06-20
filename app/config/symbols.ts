@@ -13,6 +13,9 @@ export interface BingeSymbols {
   GenreRoutes: symbol;
   GenreControllers: symbol;
   
+  CountersSchema: symbol;
+  CounterServices: symbol;
+  
   Config: symbol;
   Bootstrap: symbol;
   Schemas: symbol;
@@ -42,6 +45,9 @@ export const Symbols: BingeSymbols = {
   GenreServices: Symbol('GenresServices'),
   GenreRoutes: Symbol('GenresRoutes'),
   GenreControllers: Symbol('GenresControllers'),
+  
+  CountersSchema: Symbol('CountersSchema'),
+  CounterServices: Symbol('CounterServices'),
   
   Config: Symbol('Config'),
   Bootstrap: Symbol('Bootstrap'),

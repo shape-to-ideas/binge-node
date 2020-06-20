@@ -1,9 +1,0 @@
-{
-  "apiPort": 2100,
-  "connectionString": "mongodb://admin:admin@localhost:5151/bingedb?authSource=admin",
-  "tmdbApiKey": "84329f2071491072e0281fd3303dd7ab",
-  "tmdbEndpoint": "https://api.themoviedb.org/3/",
-  "saltRounds": 11,
-  "secretKey": "keepSecret",
-  "topRatedApiPage": 1
-}

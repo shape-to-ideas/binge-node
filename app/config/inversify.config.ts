@@ -9,7 +9,7 @@ import {ConnectionDi} from "../connection";
 import {SchemaDi} from "../connection/schemas";
 import {LoginDi} from '../user/login';
 import {GenreDi} from "../genre";
-const appSettings = require('../config.json');
+const appSettings = require('../config.json')[process.env.NODE_ENV];
 const container = new Container();
 container.bind('Config').toConstantValue((key: string) => appSettings[key]);
 container.bind(Symbols.Config).toConstantValue(appSettings);
