@@ -2,3 +2,4 @@ node_modules
 build
 .idea
 /application-logs.log
+/applicationLogs/
