@@ -5,7 +5,7 @@ import {Movies} from './interfaces'
 export class MovieFactory {
     constructor(){}
     
-    public buildMovies(payload) {
+    public buildMovies(payload): Movies {
         return {
             popularity: payload.popularity,
             voteCount: payload.vote_count,

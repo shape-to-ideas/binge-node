@@ -6,4 +6,7 @@ export interface Config {
     saltRounds: string;
     secretKey: string;
     topRatedApiPage: number;
+  "schedulersToRun": {
+    "topRatedMovies": boolean;
+  }
 }

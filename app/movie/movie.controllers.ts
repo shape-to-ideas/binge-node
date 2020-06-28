@@ -34,9 +34,18 @@ export class MovieControllers {
   
   searchByTitle = async (req: express.Request, res: express.Response) => {
     try {
-      // const queryParams = req.query;
       const keyword = req.params.title;
       const movie: Movies[] = await this.movieServices.searchByTitle(keyword);
+      this.loggerService.logResponseSent(res, req, movie);
+    } catch (err) {
+      this.loggerService.logErrorResponse(res, err);
+    }
+  };
+  
+  getMovieByGenre = async (req: express.Request, res: express.Response) => {
+    try {
+      const genreId = req.params.genreId;
+      const movie: Movies[] = await this.movieServices.getMovieByGenre(genreId);
       this.loggerService.logResponseSent(res, req, movie);
     } catch (err) {
       this.loggerService.logErrorResponse(res, err);
