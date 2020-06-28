@@ -15,9 +15,12 @@ export class Schedulers {
     ) {}
   
   public run() {
-    scheduleJob('*/10 * * * *', () => {
-      this.movieServices.insertMoviesByPopularity();
-    })
+    if (this.appSettings.schedulersToRun.topRatedMovies) {
+      scheduleJob('*/10 * * * *', () => {
+        this.movieServices.insertMoviesByPopularity();
+      })
+    }
+    
     // this.loggerService.deleteLogFiles();
   }
 }

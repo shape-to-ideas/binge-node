@@ -6,7 +6,10 @@
     "tmdbEndpoint": "https://api.themoviedb.org/3/",
     "saltRounds": 11,
     "secretKey": "keepSecret",
-    "topRatedApiPage": 1
+    "topRatedApiPage": 1,
+    "schedulersToRun": {
+      "topRatedMovies": false
+    }
   },
   "production": {
     "apiPort": 2200,
@@ -14,6 +17,9 @@
     "tmdbEndpoint": "https://api.themoviedb.org/3/",
     "saltRounds": 11,
     "secretKey": "keepSecret",
-    "topRatedApiPage": 1
+    "topRatedApiPage": 1,
+    "schedulersToRun": {
+      "topRatedMovies": true
+    }
   }
 }

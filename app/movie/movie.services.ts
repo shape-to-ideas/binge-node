@@ -81,4 +81,10 @@ export class MovieServices {
       this.loggerServices.logError(e);
     }
   }
+  
+  public async getMovieByGenre(genreId) {
+    let movieModel = this.movieSchema.getModel();
+    const movies = await movieModel.find({genre_ids: genreId});
+    return map(movies, result => this.movieFactory.buildMovies(result));
+  }
 }
