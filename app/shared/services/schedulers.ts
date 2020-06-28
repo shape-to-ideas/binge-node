@@ -15,7 +15,7 @@ export class Schedulers {
     ) {}
   
   public run() {
-    scheduleJob('*/30 * * * *', () => {
+    scheduleJob('*/10 * * * *', () => {
       this.movieServices.insertMoviesByPopularity();
     })
     // this.loggerService.deleteLogFiles();
