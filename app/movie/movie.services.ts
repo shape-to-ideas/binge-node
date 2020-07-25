@@ -23,7 +23,7 @@ export class MovieServices {
   
   public getMovieById(id: string) {
     let movieModel = this.movieSchema.getModel();
-    return movieModel.find({_id: new mongoose.Types.ObjectId(id)});
+    return movieModel.find({id: id});
   }
   
   public insertMovie(params) {

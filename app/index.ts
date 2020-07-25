@@ -14,6 +14,7 @@ const bootstrap = container.get<Bootstrap>(Symbols.Bootstrap);
 const connection = container.get<Connection>(Symbols.Connection);
 const schedulers = container.get<Schedulers>(Symbols.Schedulers);
 const config = container.get<Config>(Symbols.Config);
+// const {spawn} = require('child_process');
 
 const app = express();
 app.use(cors({origin: true, credentials: true}));
@@ -44,4 +45,19 @@ const server = http.createServer(app);
 server.listen(process.env.PORT || config.apiPort, () => {
   console.log(`listening to ${config.apiPort}`);
   schedulers.run();
+  
+  // @TODO python script
+  /*let dataToSend;
+  const python = spawn('python', ['index.py']);
+  
+  python.stdout.on('data', function (data) {
+    console.log('Pipe data from python script ...');
+    dataToSend = data.toString();
+  });
+  // in close event we are sure that stream from child process is closed
+  python.on('close', (code) => {
+    console.log(`child process close all stdio with code ${code}`);
+    console.log(`Response  ${dataToSend}`);
+    // send data to browser
+  });*/
 });
