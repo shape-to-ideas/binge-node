@@ -5,17 +5,17 @@ import {Symbols} from "../config/symbols";
 
 @injectable()
 export class Connection {
-    constructor(
-        @inject(Symbols.Config) private config: Config
-    ) {
-        console.log('Creating DatabaseService');
-    }
-    
-    public connectToDb() {
-        mongoose.connect(process.env.MONGODB_URI || this.config.connectionString, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        return mongoose.connection;
-    }
+  constructor(
+    @inject(Symbols.Config) private config: Config
+  ) {
+    console.log('Creating DatabaseService');
+  }
+  
+  public connectToDb() {
+    mongoose.connect(this.config.connectionString, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    return mongoose.connection;
+  }
 }
