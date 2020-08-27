@@ -21,9 +21,10 @@ export class MovieServices {
   ) {
   }
   
-  public getMovieById(id: string) {
+  public async getMovieById(id: string) {
     let movieModel = this.movieSchema.getModel();
-    return movieModel.find({id: id});
+    const movieResponse = await movieModel.findOne({id: id});
+    return this.movieFactory.buildMovies(movieResponse)
   }
   
   public insertMovie(params) {
