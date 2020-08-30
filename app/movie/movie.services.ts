@@ -27,6 +27,12 @@ export class MovieServices {
     return this.movieFactory.buildMovies(movieResponse)
   }
   
+  public async getMovies(ids: number[]) {
+    let movieModel = this.movieSchema.getModel();
+    const movieResponse = await movieModel.find({id: ids});
+    return map(movieResponse, result => this.movieFactory.buildMovies(result));
+  }
+  
   public insertMovie(params) {
     let movieModel = this.movieSchema.getModel();
     return movieModel.create(params);
