@@ -21,6 +21,16 @@ export class MovieControllers {
     }
   };
   
+  getMultipleMovies = async (req: express.Request, res: express.Response) => {
+    try {
+      let movieIds = req.body.movieIds;
+      let movie = await this.movieServices.getMovies(movieIds);
+      this.loggerService.logResponseSent(res, req, movie);
+    } catch (err) {
+      this.loggerService.logErrorResponse(res, err);
+    }
+  }
+  
   // Not using anymore
   insertMovie = async (req: express.Request, res: express.Response) => {
     try {
