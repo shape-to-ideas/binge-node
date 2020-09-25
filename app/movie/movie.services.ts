@@ -94,4 +94,10 @@ export class MovieServices {
     const movies = await movieModel.find({genre_ids: genreId}).limit(50);
     return map(movies, result => this.movieFactory.buildMovies(result));
   }
+  
+  public async getMoviesByTitle(movieTitles: string[]) {
+    let movieModel = this.movieSchema.getModel();
+    const movies = await movieModel.find({title: movieTitles});
+    return map(movies, result => this.movieFactory.buildMovies(result));
+  }
 }
