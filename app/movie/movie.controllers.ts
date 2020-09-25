@@ -61,4 +61,14 @@ export class MovieControllers {
       this.loggerService.logErrorResponse(res, err);
     }
   };
+  
+  getMovieByTitle = async (req: express.Request, res: express.Response) => {
+    try {
+      const movieTitles = req.body.movieTitles;
+      const movie: Movies[] = await this.movieServices.getMoviesByTitle(movieTitles);
+      this.loggerService.logResponseSent(res, req, movie);
+    } catch (err) {
+      this.loggerService.logErrorResponse(res, err);
+    }
+  };
 }
