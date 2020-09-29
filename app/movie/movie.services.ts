@@ -89,9 +89,10 @@ export class MovieServices {
     }
   }
   
-  public async getMovieByGenre(genreId) {
+  public async getMovieByGenre(genreId: number, page: number, pageSize: number) {
     let movieModel = this.movieSchema.getModel();
-    const movies = await movieModel.find({genre_ids: genreId}).limit(50);
+    const skip = (page - 1) * pageSize;
+    const movies = await movieModel.find({genre_ids: genreId}).limit(pageSize).skip(skip);
     return map(movies, result => this.movieFactory.buildMovies(result));
   }
   
