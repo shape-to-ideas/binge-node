@@ -3,6 +3,7 @@ import {TMDBServices} from './TMDBServices';
 import {LoggerServices} from './loggerServices';
 import {Schedulers} from "./schedulers";
 import {CounterServices} from "./counterServices";
+import {ParamValidation} from './paramValidation'
 
 export class ServicesDi {
     public static registerDi(container: Container, symbols: any) {
@@ -10,5 +11,6 @@ export class ServicesDi {
         container.bind<LoggerServices>(symbols.LoggerServices).to(LoggerServices).inSingletonScope();
         container.bind<Schedulers>(symbols.Schedulers).to(Schedulers).inSingletonScope();
         container.bind<CounterServices>(symbols.CounterServices).to(CounterServices).inSingletonScope();
+        container.bind<ParamValidation>(symbols.ParamValidation).to(ParamValidation).inSingletonScope();
     }
 }
