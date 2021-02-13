@@ -3,7 +3,7 @@ export const requestParams = {
         username: {
             required: true,
             type: 'string',
-            pattern: '([a-zA-Z0-9_])'
+            pattern: '/^[A-Za-z0-9]*$/'
         },
         password: {
             required: true,
@@ -20,7 +20,7 @@ export const requestParams = {
         email: {
             required: true,
             type: 'string',
-            pattern: '[a-zA-Z0-9]+@+[a-zA-Z]+.+[a-zA-z]'
+            pattern: '/^(?!.{251})([a-zA-ZÀ-ÿ0-9_\\-\\.]{1,})@([a-zA-Z0-9_\\-]{2,}).([a-zA-Z]{2,})(.([a-zA-Z]){2,})?$|^(d{10})$/'
         }
     }
 }
