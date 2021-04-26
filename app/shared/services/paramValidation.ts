@@ -9,7 +9,7 @@ export class ParamValidation {
   public validateParams(params: any) {
     return (req, res, next) => {
       for (let element in params) {
-        //* check for required fields*/
+        /** check for required fields*/
         if (!this.checkRequired(params[element], req.body[element])) {
           res.status(400).send({
             status: 400,
@@ -20,7 +20,7 @@ export class ParamValidation {
           })
           return;
         }
-        //* check for field types*/
+        /** check for field types*/
         if (!this.checkType(params[element], req.body[element])) {
           res.status(400).send({
             status: 400,
@@ -31,7 +31,7 @@ export class ParamValidation {
           })
           return;
         }
-        //* check for field  pattern*/ 
+        /*ś* check for field  pattern*/ 
         if (params[element].pattern && !this.checkPattern(params[element], req.body[element])) {
           res.status(400).send({
             status: 400,
