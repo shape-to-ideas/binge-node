@@ -29,6 +29,7 @@ export interface BingeSymbols {
   RegisterServices: symbol;
   RegisterControllers: symbol;
   Schedulers: symbol;
+  ParamValidation: symbol;
 }
 
 export const Symbols: BingeSymbols = {
@@ -62,4 +63,5 @@ export const Symbols: BingeSymbols = {
   RegisterServices: Symbol('RegisterServices'),
   RegisterControllers: Symbol('RegisterControllers'),
   Schedulers: Symbol('Schedulers'),
+  ParamValidation: Symbol('ParamValidation'), 
 };

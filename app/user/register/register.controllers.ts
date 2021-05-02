@@ -12,11 +12,9 @@ export class RegisterControllers {
     ){}
     registerUser = async (req: express.Request, res: express.Response) => {
         try {
-            const email = req.body.email;
-            const username = req.body.username;
-            const password = req.body.password;
-            const firstname = req.body.firstname;
-            const lastname = req.body.lastname;
+            res.send({})
+            return;
+            const {email, username, password, firstname, lastname} = req.body;
             const registerUser = await this.registerServices.registerUser(email, username, password, firstname, lastname);
             this.loggerServices.logResponseSent(res, req, registerUser);
         } catch (e) {
