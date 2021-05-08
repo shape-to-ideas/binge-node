@@ -14,7 +14,7 @@ export class MovieRoutes {
     public register(app: express.Application) {
         app.get('/movie/:id', this.movieControllers.getMovieById);
         app.post('/movies', jsonParser, this.movieControllers.getMultipleMovies);
-        app.get('/search/:title', this.movieControllers.searchByTitle);
+        app.get('/search/movie/:title', this.movieControllers.searchByTitle);
         app.get('/movie/genre/:genreId', this.movieControllers.getMovieByGenre);
         app.post('/movies-by-title', jsonParser, this.movieControllers.getMovieByTitle);
     }

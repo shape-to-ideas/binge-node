@@ -60,6 +60,7 @@ export class MovieServices {
     const movieInDb = await movieModel.find({id: {$in: movieIds}}).lean();
     const moviesToInsert = filter(moviesData, (movie) => isEmpty(find(movieInDb, {id: movie.id})));
     movieModel.insertMany(moviesToInsert, (error, response) => {
+      console.log('inserted', moviesToInsert);
       if (error) {
         this.loggerServices.logError(error)
       }
