@@ -20,4 +20,15 @@ export class LoginControllers {
             this.loggerServices.logErrorResponse(res, e)
         }
     }
+    
+    /*getUser = async (req: express.Request, res: express.Response) => {
+        try {
+            const token = req.headers.access_token as string;
+            const userData = decode(token);
+            
+            this.loggerServices.logResponseSent(res, req, {token});
+        } catch (e) {
+            this.loggerServices.logErrorResponse(res, e)
+        }
+    }*/
 }

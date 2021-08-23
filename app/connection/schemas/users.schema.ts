@@ -13,6 +13,7 @@ export class UsersSchema {
                 password: String,
                 firstname: String,
                 lastname: String,
+                liked_movies: []
             }
         );
         this.usersModel = mongoose.model('Users', this.usersSchema);

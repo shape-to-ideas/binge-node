@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 
 @injectable()
-export class LoginFactory {
+export class ActionsFactory {
     public buildTokenResponse(userData) {
         return {
             username: userData.username,

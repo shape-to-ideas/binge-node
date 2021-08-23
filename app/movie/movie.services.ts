@@ -1,7 +1,6 @@
 import {inject, injectable} from "inversify";
 import {Symbols} from "../config/symbols";
 import {MoviesSchema} from "../connection/schemas";
-import * as mongoose from 'mongoose';
 import {Config, CounterServices} from '../shared';
 import {TMDBServices, LoggerServices} from '../shared/services';
 import {Movies} from './interfaces';
@@ -46,14 +45,6 @@ export class MovieServices {
     return map(response.data.results, result => this.movieFactory.buildMovies(result));
   }
   
-  public searchByTitleWithApi() {
-    const options = {
-      host: this.config.tmdbEndpoint,
-      path: '',
-      method: 'GET'
-    }
-  }
-  
   public async saveMoviesToDB(moviesData: Movies[]) {
     let movieModel = this.movieSchema.getModel();
     const movieIds = map(moviesData, (movie) => movie.id);
@@ -93,7 +84,24 @@ export class MovieServices {
   public async getMovieByGenre(genreId: number, page: number, pageSize: number) {
     let movieModel = this.movieSchema.getModel();
     const skip = (page - 1) * pageSize;
-    const movies = await movieModel.find({genre_ids: genreId}).limit(pageSize).skip(skip);
+    // const movies = await movieModel.find({genre_ids: genreId}).limit(pageSize).skip(skip);
+    const movies = await movieModel.aggregate([
+      { $match: { genre_ids: genreId } },
+      {
+        $addFields: {
+          vote_by_rating:
+          {
+            $cond: {
+              if: { $gt: ["$vote_average", 0] }, then: { $divide: ['$vote_count', '$vote_average'] },
+              else: 10
+            }
+          }
+        }
+      },
+      { $sort: { vote_by_rating: -1 } },
+      { $skip: skip },
+      { $limit: pageSize }
+    ]);
     return map(movies, result => this.movieFactory.buildMovies(result));
   }
   
