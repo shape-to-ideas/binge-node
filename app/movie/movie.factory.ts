@@ -21,6 +21,7 @@ export class MovieFactory {
             voteAverage: payload.vote_average,
             overview: payload.overview,
             releaseDate: payload.release_date,
+            vote_by_rating: payload.vote_by_rating
         }
     }
 }

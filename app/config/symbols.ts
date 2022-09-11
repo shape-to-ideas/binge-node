@@ -28,6 +28,10 @@ export interface BingeSymbols {
   LoginControllers: symbol;
   RegisterServices: symbol;
   RegisterControllers: symbol;
+  ActionsControllers: symbol;
+  ActionsServices: symbol;
+  ActionsRoutes: symbol;
+  ActionsFactory: symbol;
   Schedulers: symbol;
   ParamValidation: symbol;
 }
@@ -62,6 +66,10 @@ export const Symbols: BingeSymbols = {
   LoginControllers: Symbol('LoginControllers'),
   RegisterServices: Symbol('RegisterServices'),
   RegisterControllers: Symbol('RegisterControllers'),
+  ActionsControllers: Symbol('ActionsControllers'),
+  ActionsServices: Symbol('ActionsServices'),
+  ActionsRoutes: Symbol('ActionsRoutes'),
+  ActionsFactory: Symbol('ActionsFactory'),
   Schedulers: Symbol('Schedulers'),
   ParamValidation: Symbol('ParamValidation'), 
 };

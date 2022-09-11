@@ -9,6 +9,7 @@ import {ConnectionDi} from "../connection";
 import {SchemaDi} from "../connection/schemas";
 import {LoginDi} from '../user/login';
 import {GenreDi} from "../genre";
+import {ActionsDi} from "../user/actions";
 const appSettings = require('../config.json')[process.env.NODE_ENV];
 const container = new Container();
 container.bind('Config').toConstantValue((key: string) => appSettings[key]);
@@ -21,6 +22,7 @@ ServicesDi.registerDi(container, Symbols);
 LoginDi.registerDi(container, Symbols);
 RegisterDi.registerDi(container, Symbols);
 GenreDi.registerDi(container, Symbols);
+ActionsDi.registerDi(container, Symbols);
 
 container.bind<Bootstrap>(Symbols.Bootstrap).to(Bootstrap).inSingletonScope();
 export default container;

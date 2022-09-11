@@ -13,4 +13,5 @@ export interface Movies {
     voteAverage: number;
     overview: string;
     releaseDate: number;
+    vote_by_rating?: number;
 }
