@@ -3,3 +3,4 @@ build
 .idea
 /application-logs.log
 /applicationLogs/
+.env

@@ -4,13 +4,11 @@ import {sign, verify} from 'jsonwebtoken'
 import {UsersSchema} from '../../connection/schemas';
 import {LoginFactory} from './'
 import * as bcrypt from 'bcrypt';
-import {Config} from '../../shared';
 
 @injectable()
 export class LoginServices {
   constructor(
     @inject(Symbols.UsersSchema) private userSchema: UsersSchema,
-    @inject(Symbols.Config) private config: Config,
     @inject(Symbols.LoginFactory) private loginFactory: LoginFactory
   ) {
   }
@@ -22,7 +20,7 @@ export class LoginServices {
       const isPasswordValid = bcrypt.compareSync(password, existingUser.password);
       if (isPasswordValid) {
         const userData = this.loginFactory.buildTokenResponse(existingUser);
-        return {token: sign(userData, this.config.secretKey), user: userData};
+        return {token: sign(userData, process.env.SECRET_KEY), user: userData};
       } else {
         throw new Error('Invalid password');
       }
@@ -32,6 +30,6 @@ export class LoginServices {
   }
   
   public verifyToken(token: string) {
-    return verify(token, this.config.secretKey)
+    return verify(token, process.env.SECRET_KEY)
   }
 }

@@ -24,7 +24,6 @@
   },
   "include": [
     "app/**/*",
-    "app/config.json",
     "app/user/error.json",
     "spec/support/jasmine.json"
   ],

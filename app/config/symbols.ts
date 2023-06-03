@@ -16,7 +16,6 @@ export interface BingeSymbols {
   CountersSchema: symbol;
   CounterServices: symbol;
   
-  Config: symbol;
   Bootstrap: symbol;
   Schemas: symbol;
   TMDBServices: symbol;
@@ -54,7 +53,6 @@ export const Symbols: BingeSymbols = {
   CountersSchema: Symbol('CountersSchema'),
   CounterServices: Symbol('CounterServices'),
   
-  Config: Symbol('Config'),
   Bootstrap: Symbol('Bootstrap'),
   Schemas: Symbol('Schemas'),
   TMDBServices: Symbol('TMDBServices'),

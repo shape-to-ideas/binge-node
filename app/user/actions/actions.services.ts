@@ -4,7 +4,6 @@ import {sign, verify} from 'jsonwebtoken'
 import {UsersSchema} from '../../connection/schemas';
 import {MoviesSchema} from '../../connection/schemas';
 import {ActionsFactory} from '.';
-import {Config} from '../../shared';
 import {includes, filter} from 'lodash';
 
 @injectable()
@@ -12,7 +11,6 @@ export class ActionsServices {
   constructor(
     @inject(Symbols.UsersSchema) private userSchema: UsersSchema,
     @inject(Symbols.MoviesSchema) private movieSchema: MoviesSchema,
-    @inject(Symbols.Config) private config: Config,
     @inject(Symbols.ActionsFactory) private actionsFactory: ActionsFactory
   ) {
   }
@@ -63,6 +61,6 @@ export class ActionsServices {
   }
   
   public verifyToken(token: string) {
-    return verify(token, this.config.secretKey)
+    return verify(token, process.env.SECRET_KEY)
   }
 }

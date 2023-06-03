@@ -1,15 +1,12 @@
-import { inject, injectable } from 'inversify';
-import {Symbols} from "../../config/symbols";
-import {Config} from '../../shared';
+import { injectable } from 'inversify';
 import axios from 'axios';
 
 @injectable()
 export class TMDBServices {
     constructor(
-        @inject(Symbols.Config) private config: Config
     ){}
     public search(query: string, language?: string, page?: number, includeAdult?: boolean) {
-        let apiString = `${this.config.tmdbEndpoint}search/movie?api_key=${this.config.tmdbApiKey}&query=${query}`;
+        let apiString = `${process.env.TMDB_ENDPOINT}search/movie?api_key=${process.env.TMDB_API_KEY}&query=${query}`;
         if (language) {
             apiString += `&language=${language}`;
         }
@@ -26,7 +23,7 @@ export class TMDBServices {
       if (options.page) {
         params += `&page=${options.page}`;
       }
-      let apiString =`${this.config.tmdbEndpoint}movie/top_rated?api_key=${this.config.tmdbApiKey}${params}`;
+      let apiString =`${process.env.TMDB_ENDPOINT}movie/top_rated?api_key=${process.env.TMDB_API_KEY}${params}`;
       return axios.get(apiString);
     }
 }

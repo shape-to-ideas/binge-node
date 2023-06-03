@@ -10,10 +10,9 @@ import {SchemaDi} from "../connection/schemas";
 import {LoginDi} from '../user/login';
 import {GenreDi} from "../genre";
 import {ActionsDi} from "../user/actions";
-const appSettings = require('../config.json')[process.env.NODE_ENV];
 const container = new Container();
-container.bind('Config').toConstantValue((key: string) => appSettings[key]);
-container.bind(Symbols.Config).toConstantValue(appSettings);
+// container.bind('Config').toConstantValue((key: string) => appSettings[key]);
+// container.bind(Symbols.Config).toConstantValue(appSettings);
 
 ConnectionDi.registerDi(container, Symbols);
 MovieDi.registerDi(container, Symbols);

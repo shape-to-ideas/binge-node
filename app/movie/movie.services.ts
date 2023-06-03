@@ -1,7 +1,7 @@
 import {inject, injectable} from "inversify";
 import {Symbols} from "../config/symbols";
 import {MoviesSchema} from "../connection/schemas";
-import {Config, CounterServices} from '../shared';
+import {CounterServices} from '../shared';
 import {TMDBServices, LoggerServices} from '../shared/services';
 import {Movies} from './interfaces';
 import {MovieFactory} from './movie.factory';
@@ -12,7 +12,6 @@ export class MovieServices {
   private topRatedSchedulerLogPath = 'applicationLogs/topRatedScheduler.log';
   constructor(
     @inject(Symbols.MoviesSchema) private movieSchema: MoviesSchema,
-    @inject(Symbols.Config) private config: Config,
     @inject(Symbols.MovieFactory) private movieFactory: MovieFactory,
     @inject(Symbols.TMDBServices) private tmdbServices: TMDBServices,
     @inject(Symbols.LoggerServices) private loggerServices: LoggerServices,
