@@ -1,15 +1,15 @@
-import 'dotenv/config'
-import container from "./config/inversify.config";
+import 'dotenv/config';
+import container from './config/inversify.config';
 import * as express from 'express';
 import * as http from 'http';
 
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-import { Schedulers} from './shared';
+import { Schedulers } from './shared';
 
-import {Bootstrap} from "./bootstrap";
-import {Symbols} from "./config/symbols";
-import {Connection} from "./connection";
+import { Bootstrap } from './bootstrap';
+import { Symbols } from './config/symbols';
+import { Connection } from './connection';
 
 const bootstrap = container.get<Bootstrap>(Symbols.Bootstrap);
 const connection = container.get<Connection>(Symbols.Connection);
@@ -17,37 +17,43 @@ const schedulers = container.get<Schedulers>(Symbols.Schedulers);
 // const {spawn} = require('child_process');
 
 const app = express();
-app.use(cors({origin: true, credentials: true}));
+app.use(cors({ origin: true, credentials: true }));
 app.options('*', cors());
 app.use(cookieParser());
 
 try {
-  bootstrap.init(app);
+	bootstrap.init(app);
 } catch (error) {
-  console.log('ApplicationError', error, {message: 'An error occurred while bootstrapping'});
+	console.log('ApplicationError', error, {
+		message: 'An error occurred while bootstrapping',
+	});
 }
 
 try {
-  connection.connectToDb().on('error', console.error.bind(console, 'connection error:'));
-  connection.connectToDb().once('open', function () {
-    console.log(`Database connection successful`);
-  });
+	connection
+		.connectToDb()
+		.on('error', console.error.bind(console, 'connection error:'));
+	connection.connectToDb().once('open', function () {
+		console.log(`Database connection successful`);
+	});
 } catch (err) {
-  console.log('ApplicationError', err, {message: 'An error occurred connection to DB'});
+	console.log('ApplicationError', err, {
+		message: 'An error occurred connection to DB',
+	});
 }
 
 app.get('/', (req, res) => {
-  res.send('Welcome to binge API')
+	res.send('Welcome to binge API');
 });
 
 const server = http.createServer(app);
 
 server.listen(process.env.PORT || 3000, () => {
-  console.log(`listening to ${process.env.PORT || 3000}`);
-  schedulers.run();
-  
-  // @TODO python script
-  /*let dataToSend;
+	console.log(`listening to ${process.env.PORT || 3000}`);
+	schedulers.run();
+
+	// @TODO python script
+	/*let dataToSend;
   const python = spawn('python', ['index.py']);
   
   python.stdout.on('data', function (data) {
