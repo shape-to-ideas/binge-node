@@ -1,26 +1,26 @@
 {
-  "development": {
-    "apiPort": 1100,
-    "connectionString": "mongodb+srv://binge_user:j5zK0ITpZzbbRkbR@bingedb.srj5f.gcp.mongodb.net/bingedb?retryWrites=true&w=majority",
-    "tmdbApiKey": "84329f2071491072e0281fd3303dd7ab",
-    "tmdbEndpoint": "https://api.themoviedb.org/3/",
-    "saltRounds": 11,
-    "secretKey": "keepSecret",
-    "topRatedApiPage": 1,
-    "schedulersToRun": {
-      "topRatedMovies": false
-    }
-  },
-  "production": {
-    "apiPort": 2200,
-    "connectionString": "mongodb+srv://binge_user:j5zK0ITpZzbbRkbR@bingedb.srj5f.gcp.mongodb.net/bingedb?retryWrites=true&w=majority",
-    "tmdbApiKey": "84329f2071491072e0281fd3303dd7ab",
-    "tmdbEndpoint": "https://api.themoviedb.org/3/",
-    "saltRounds": 11,
-    "secretKey": "keepSecret",
-    "topRatedApiPage": 1,
-    "schedulersToRun": {
-      "topRatedMovies": true
-    }
-  }
+	"development": {
+		"apiPort": 1100,
+		"connectionString": "mongodb+srv://binge_user:j5zK0ITpZzbbRkbR@bingedb.srj5f.gcp.mongodb.net/bingedb?retryWrites=true&w=majority",
+		"tmdbApiKey": "84329f2071491072e0281fd3303dd7ab",
+		"tmdbEndpoint": "https://api.themoviedb.org/3/",
+		"saltRounds": 11,
+		"secretKey": "keepSecret",
+		"topRatedApiPage": 1,
+		"schedulersToRun": {
+			"topRatedMovies": false
+		}
+	},
+	"production": {
+		"apiPort": 2200,
+		"connectionString": "mongodb+srv://binge_user:j5zK0ITpZzbbRkbR@bingedb.srj5f.gcp.mongodb.net/bingedb?retryWrites=true&w=majority",
+		"tmdbApiKey": "84329f2071491072e0281fd3303dd7ab",
+		"tmdbEndpoint": "https://api.themoviedb.org/3/",
+		"saltRounds": 11,
+		"secretKey": "keepSecret",
+		"topRatedApiPage": 1,
+		"schedulersToRun": {
+			"topRatedMovies": true
+		}
+	}
 }

@@ -1,22 +1,22 @@
 version: '3.6'
 
 services:
-  node:
-    image: node:18
-    container_name: binge-node
-    restart: always
-    ports:
-      - 3000:3000
+    node:
+        image: node:18
+        container_name: binge-node
+        restart: always
+        ports:
+            - 3000:3000
 
-  mongo:
-    image: mongo:latest
-    container_name: binge-mongo
-    restart: always
-    ports:
-      - 5151:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: admin
-      MONGO_INITDB_DATABASE: bingedb
-    volumes:
-      - ./binge-mongo:/data/db
+    mongo:
+        image: mongo:latest
+        container_name: binge-mongo
+        restart: always
+        ports:
+            - 5151:27017
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: admin
+            MONGO_INITDB_DATABASE: bingedb
+        volumes:
+            - ./binge-mongo:/data/db
