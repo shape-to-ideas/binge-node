@@ -4,11 +4,12 @@ FROM node:18
 WORKDIR /app
 
 # Install app dependencies
-COPY package*.json tsconfig.json firebase.json ./
+COPY package.json pnpm-lock.yaml tsconfig.json firebase.json .env ./
 COPY app app
 COPY public public
-RUN npm install
-RUN npm run build
+RUN npm i -g pnpm
+RUN pnpm install --frozen-lockfile
+RUN pnpm build
 
 EXPOSE 3000
-CMD ["npm","start"]
+CMD ["pnpm","start"]
