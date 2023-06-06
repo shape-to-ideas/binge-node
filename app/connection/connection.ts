@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+import { connect, connection } from 'mongoose';
 import { injectable } from 'inversify';
 
 @injectable()
@@ -8,10 +8,10 @@ export class Connection {
 	}
 
 	public connectToDb() {
-		mongoose.connect(process.env.CONNECTION_STRING, {
+		connect(process.env.CONNECTION_STRING, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 		});
-		return mongoose.connection;
+		return connection;
 	}
 }
