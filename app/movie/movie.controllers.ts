@@ -58,7 +58,7 @@ export class MovieControllers {
 	getMovieByGenre = async (req: express.Request, res: express.Response) => {
 		try {
 			const genreId = parseInt(req.params.genreId, 10);
-			const page = req.query.page ? parseInt(req.query.page, 10) : 1;
+			const page = req.query.page ? parseInt(req.query.page as string, 10) : 1;
 			const pageSize = 50;
 			const movie: Movies[] = await this.movieServices.getMovieByGenre(
 				genreId,
