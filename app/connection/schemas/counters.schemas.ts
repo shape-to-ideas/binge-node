@@ -1,10 +1,10 @@
-import * as mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { injectable } from 'inversify';
 
 @injectable()
 export class CountersSchema {
-	Schema = mongoose.Schema;
-	countersSchema: mongoose.Schema;
+	Schema = Schema;
+	countersSchema: Schema;
 	countersModel;
 
 	public initCountersSchema() {
@@ -12,7 +12,7 @@ export class CountersSchema {
 			name: String,
 			count: Number,
 		});
-		this.countersModel = mongoose.model('Counters', this.countersSchema);
+		this.countersModel = model('Counters', this.countersSchema);
 	}
 
 	public getModel() {

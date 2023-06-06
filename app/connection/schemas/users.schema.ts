@@ -1,10 +1,10 @@
-import * as mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { injectable } from 'inversify';
 
 @injectable()
 export class UsersSchema {
-	Schema = mongoose.Schema;
-	usersSchema: mongoose.Schema;
+	Schema = Schema;
+	usersSchema: Schema;
 	usersModel;
 	public initUsersSchema() {
 		this.usersSchema = new this.Schema({
@@ -15,7 +15,7 @@ export class UsersSchema {
 			lastname: String,
 			liked_movies: [],
 		});
-		this.usersModel = mongoose.model('Users', this.usersSchema);
+		this.usersModel = model('Users', this.usersSchema);
 	}
 
 	public getModel() {
