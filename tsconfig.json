@@ -1,22 +1,32 @@
 {
-	"compilerOptions": {
-		"declaration": false,
-		"module": "commonjs",
-		"moduleResolution": "node",
-		"noImplicitAny": false,
-		"outDir": "./build/",
-		"preserveConstEnums": true,
-		"removeComments": true,
-		"resolveJsonModule": true,
-		"sourceMap": true,
-		"inlineSources": true,
-		"target": "es6",
-		"types": ["reflect-metadata"],
-		"lib": ["es2017", "dom"],
-		"typeRoots": ["node_modules/@types"],
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true
-	},
-	"include": ["app/**/*", "app/user/error.json", "spec/support/jasmine.json"],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "declaration": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "outDir": "./build/",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "target": "es6",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": [
+    "app/**/*",
+    "app/user/error.json",
+    "spec/support/jasmine.json"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
