@@ -4,7 +4,7 @@ FROM node:18
 WORKDIR /app
 
 # Install app dependencies
-COPY package.json pnpm-lock.yaml tsconfig.json firebase.json .env ./
+COPY package.json pnpm-lock.yaml tsconfig.json firebase.json ./
 COPY app app
 COPY public public
 RUN npm i -g pnpm
