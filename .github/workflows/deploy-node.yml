@@ -35,4 +35,10 @@ jobs:
             labels: ${{ steps.metadata.outputs.labels }}
 
         # Deploy the Docker image to the GKE cluster
+        - name: Deploy to GCR
+          uses: 'google-github-actions/deploy-cloudrun@v1'
+          with:
+            image: 'gcr.io/binge-on/binge-node'
+            service: 'binge-node'
+            region: 'asia-east1'
 
