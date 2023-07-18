@@ -31,13 +31,13 @@ jobs:
           with:
             context: .
             push: true
-            tags: cloudrun/binge-node:latest
+            tags: gcr.io/binge-on/cloudrun/binge-node:latest
 
         # Deploy the Docker image to the GKE cluster
         - name: Deploy to GCR
           uses: 'google-github-actions/deploy-cloudrun@v1'
           with:
-            image: gcr.io/cloudrun/binge-node:latest
+            image: gcr.io/binge-on/cloudrun/binge-node:latest
             service: 'binge-node'
             region: 'asia-east1'
 
