@@ -20,6 +20,8 @@ jobs:
         - name: 'Set up Cloud SDK'
           uses: 'google-github-actions/setup-gcloud@v1'
 
+        - uses: docker/setup-buildx-action@master
+
         # Configure Docker with Credentials
         - name: Configure Docker
           run: |
