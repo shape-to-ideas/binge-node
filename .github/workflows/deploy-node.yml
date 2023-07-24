@@ -40,4 +40,7 @@ jobs:
             image: gcr.io/binge-on/cloudrun/binge-node:latest
             service: 'binge-node'
             region: 'asia-east1'
+            env_vars: |
+              CONNECTION_STRING=${{ vars.CONNECTION_STRING }}
+              
 
