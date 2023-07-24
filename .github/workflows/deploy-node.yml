@@ -32,6 +32,8 @@ jobs:
             context: .
             push: true
             tags: gcr.io/binge-on/cloudrun/binge-node:latest
+            cache-from: type=gha
+            cache-to: type=gha,mode=max
 
         # Deploy the Docker image to the GKE cluster
         - name: Deploy to GCR
