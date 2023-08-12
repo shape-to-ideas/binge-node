@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
-import { Symbols } from '../../config/symbols';
-import { LoggerServices } from '../../shared/services';
+import { Symbols } from '../../config';
+import { LoggerServices } from '../../shared';
 import { RegisterServices } from './register.services';
 import * as express from 'express';
 
@@ -13,8 +13,6 @@ export class RegisterControllers {
 	) {}
 	registerUser = async (req: express.Request, res: express.Response) => {
 		try {
-			res.send({});
-			return;
 			const { email, username, password, firstname, lastname } = req.body;
 			const registerUser = await this.registerServices.registerUser(
 				email,
